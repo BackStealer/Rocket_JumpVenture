@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/new/sound">
+        <file>sound_res/explode1.wav</file>
+        <file>sound_res/laugh_sold.mp3</file>
+        <file>sound_res/rocket_shoot.wav</file>
+        <file>sound_res/Team Fortress 2 - Rocket Jump Waltz Orchestra (Extended 6 minutes).mp3</file>
+        <file>sound_res/Rocket Jump Waltz Remix [NO HEAVY] - HD.mp3</file>
+        <file>sound_res/Team Fortress 2 Soundtrack Intruder Alert.mp3</file>
+        <file>sound_res/The Calm and ROBOTS! combined (Team Fortress 2 music).mp3</file>
+    </qresource>
+    <qresource prefix="/new/img">
+        <file>img_res/bg.png</file>
+        <file>img_res/intel.png</file>
+        <file>img_res/rocket.png</file>
+        <file>img_res/Scoutbot.png</file>
+        <file>img_res/Soldier.png</file>
+        <file>img_res/Soldier_laugh.png</file>
+        <file>img_res/Soldier_rj.png</file>
+        <file>img_res/Spyware.png</file>
+    </qresource>
+</RCC>
