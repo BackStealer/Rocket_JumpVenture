@@ -16,7 +16,7 @@ Rocket::Rocket(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
     Btimer->start(10);
     rktExpl = new QMediaPlayer();
     rktExpl->setMedia(QUrl("qrc:/new/sound/sound_res/explode1.wav"));
-    rktExpl->setVolume(6);
+    rktExpl->setVolume(3);
 }
 
 void Rocket::move()

@@ -2,8 +2,9 @@
 #include <QGraphicsScene>
 #include "Game.h"
 #include <stdlib.h>
+#include <QList>
 
-//extern Game * game;
+extern Game * game;
 
 Intel::Intel(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
@@ -13,10 +14,31 @@ Intel::Intel(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
     QTimer * intelTimer = new QTimer();
     connect(intelTimer,SIGNAL(timeout()),this,SLOT(intelMove()));
     intelTimer->start(25);
+    Hehe = new QMediaPlayer();
+    Hehe->setMedia(QUrl("qrc:/new/sound/sound_res/TF2 Soldier Mine.mp3"));
+    Hehe->setVolume(10);
+    skill = new Skill();
+}
+
+void Intel::MineL()
+{
+    Hehe->play();
 }
 
 void Intel::intelMove()
 {
+    QList<QGraphicsItem *> collision_intel = collidingItems();
+    for ( int i=0, n = collision_intel.size(); i<n; ++i)
+    {
+        if(typeid(*(collision_intel[i])) == typeid(Soldier))
+        {
+            game->skill->increase();
+            skill->increase();
+            scene()->removeItem(this);
+            delete this;
+            return MineL();
+        }
+    }
     setPos(x()-22,y());
     if(pos().x()+100 < 0)
     {

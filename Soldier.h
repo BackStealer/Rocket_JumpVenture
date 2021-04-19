@@ -21,11 +21,13 @@ public:
     QMediaPlayer *rktShoot, *laugh;
     QMap<int, bool> pressedKeys;
     QPointF position;
+    int check;
 public slots:
     void spawn();
     void intelSpawn();
     void endLaugh();
     void move();
+    void SkillInfo();
 private:
     Skill *skill;
 };

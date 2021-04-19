@@ -43,7 +43,7 @@ Game::Game(QWidget *parent)
 
     QTimer * intelSpwnTimer = new QTimer();
     QObject::connect(intelSpwnTimer,SIGNAL(timeout()),soldier,SLOT(intelSpawn()));
-    intelSpwnTimer->start(60000);
+    intelSpwnTimer->start(6000);
 
     playlist = new QMediaPlaylist();
     playlist->addMedia(QUrl("qrc:/new/sound/sound_res/Rocket Jump Waltz Remix [NO HEAVY] - HD.mp3"));

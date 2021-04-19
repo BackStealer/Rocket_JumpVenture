@@ -20,6 +20,9 @@ Soldier::Soldier(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
         position.setX(position.x() + 35);
         position.setY(position.y() + 250);
         skill = new Skill();
+        QTimer *SkillInfo = new QTimer();
+        connect(SkillInfo,SIGNAL(timeout()),this,SLOT(SkillInfo()));
+        SkillInfo->start(1);
 }
 
 void Soldier::keyPressEvent(QKeyEvent *event)
@@ -42,13 +45,13 @@ void Soldier::keyPressEvent(QKeyEvent *event)
         scene()->addItem(rocket);
         rktShoot = new QMediaPlayer();
         rktShoot->setMedia(QUrl("qrc:/new/sound/sound_res/rocket_shoot.wav"));
-        rktShoot->setVolume(6);
+        rktShoot->setVolume(2);
         rktShoot->play();
     }
     else if (event->key() == Qt::Key_K)
     {
         game->skill->decrease();
-        int check = skill->getSkill();
+        check = skill->getSkill();
         qDebug() << check;
         if(check>0)
         {
@@ -118,5 +121,10 @@ void Soldier::move()
     position += velocity.toPointF();
     this->setPos(position);
     this->update();
+}
+
+void Soldier::SkillInfo()
+{
+    check = skill->getSkill();
 }
 

@@ -1,4 +1,4 @@
-#include "Skill.h"
+ #include "Skill.h"
 #include <QFont>
 
 Skill::Skill(QGraphicsItem *parent): QGraphicsTextItem(parent)
@@ -21,4 +21,12 @@ void Skill::decrease()
 int Skill::getSkill()
 {
     return skill;
+}
+void Skill::increase()
+{
+    if(skill>0)
+    {
+    skill++;
+    setPlainText(QString("Super Skills: ") + QString::number(skill));
+    }
 }
