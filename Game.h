@@ -10,6 +10,8 @@
 #include "Soldier.h"
 #include "Score.h"
 #include "Health.h"
+#include "Intel.h"
+#include "Skill.h"
 
 class Game: public QGraphicsView{
 public:
@@ -19,6 +21,7 @@ public:
     Soldier * soldier;
     Score * score;
     Health * health;
+    Skill * skill;
     QMediaPlaylist * playlist;
     QMediaPlayer * player;
 };

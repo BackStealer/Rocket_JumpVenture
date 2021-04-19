@@ -12,8 +12,10 @@ SOURCES += \
     Blu_bots.cpp \
     Game.cpp \
     Health.cpp \
+    Intel.cpp \
     Rocket.cpp \
     Score.cpp \
+    Skill.cpp \
     Soldier.cpp \
     main.cpp
 
@@ -21,8 +23,10 @@ HEADERS += \
     Blu_bots.h \
     Game.h \
     Health.h \
+    Intel.h \
     Rocket.h \
     Score.h \
+    Skill.h \
     Soldier.h
 
 FORMS +=

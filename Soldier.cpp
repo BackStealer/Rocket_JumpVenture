@@ -1,12 +1,14 @@
+#include "Game.h"
 #include "Soldier.h"
 #include "Rocket.h"
 #include "Blu_bots.h"
+#include "Intel.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
-#include <QTimer>
-#include <QGraphicsScale>
 #include <QVector2D>
 #include <QPoint>
+
+extern Game * game;
 
 Soldier::Soldier(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
@@ -17,6 +19,7 @@ Soldier::Soldier(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
         mvmnt->start();
         position.setX(position.x() + 35);
         position.setY(position.y() + 250);
+        skill = new Skill();
 }
 
 void Soldier::keyPressEvent(QKeyEvent *event)
@@ -44,6 +47,11 @@ void Soldier::keyPressEvent(QKeyEvent *event)
     }
     else if (event->key() == Qt::Key_K)
     {
+        game->skill->decrease();
+        int check = skill->getSkill();
+        qDebug() << check;
+        if(check>0)
+        {
         laugh = new QMediaPlayer();
         laugh->setMedia(QUrl("qrc:/new/sound/sound_res/laugh_sold.mp3"));
         laugh->setVolume(30);
@@ -52,6 +60,8 @@ void Soldier::keyPressEvent(QKeyEvent *event)
         QTimer * LaughT = new QTimer();
         connect(LaughT,SIGNAL(timeout()),this,SLOT(endLaugh()));
         LaughT->start(2500);
+        }
+        skill->decrease();
     }
 }
 void Soldier::keyReleaseEvent(QKeyEvent *event)
@@ -64,14 +74,20 @@ void Soldier::keyReleaseEvent(QKeyEvent *event)
     pressedKeys[event->key()] = false;
 }
 
-void Soldier::mousePressEvent(QMouseEvent *event)
-{
-    this->setFocus();
-}
+//void Soldier::mousePressEvent(QMouseEvent *event)
+//{
+//    this->setFocus();
+//}
 void Soldier::spawn()
 {
     Blu * blu = new Blu();
     scene()->addItem(blu);
+}
+
+void Soldier::intelSpawn()
+{
+    Intel * intel = new Intel();
+    scene()->addItem(intel);
 }
 
 void Soldier::endLaugh()

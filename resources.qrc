@@ -7,6 +7,7 @@
         <file>sound_res/Rocket Jump Waltz Remix [NO HEAVY] - HD.mp3</file>
         <file>sound_res/Team Fortress 2 Soundtrack Intruder Alert.mp3</file>
         <file>sound_res/The Calm and ROBOTS! combined (Team Fortress 2 music).mp3</file>
+        <file>sound_res/TF2 Soldier Mine.mp3</file>
     </qresource>
     <qresource prefix="/new/img">
         <file>img_res/bg.png</file>
