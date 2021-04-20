@@ -3,30 +3,27 @@
 
 Skill::Skill(QGraphicsItem *parent): QGraphicsTextItem(parent)
 {
-    skill = 1;
-    setPlainText(QString("Super Skills: ") + QString::number(skill));
+    skillN = 1;
+    setPlainText(QString("Super Skills: ") + QString::number(skillN));
     setDefaultTextColor(Qt::white);
     setFont(QFont("times",14));
 }
 
 void Skill::decrease()
 {
-    if(skill>0)
+    if(skillN>0)
     {
-    skill--;
-    setPlainText(QString("Super Skills: ") + QString::number(skill));
+    skillN--;
+    setPlainText(QString("Super Skills: ") + QString::number(skillN));
     }
     else return;
 }
 int Skill::getSkill()
 {
-    return skill;
+    return skillN;
 }
-void Skill::increase()
+void Skill::skillIncrease()
 {
-    if(skill>0)
-    {
-    skill++;
-    setPlainText(QString("Super Skills: ") + QString::number(skill));
-    }
+    skillN += 1;
+    setPlainText(QString("Super Skills: ") + QString::number(skillN));
 }

@@ -8,9 +8,9 @@ class Skill: public QGraphicsTextItem
 public:
     Skill(QGraphicsItem * parent=0);
     void decrease();
-    void increase();
+    void skillIncrease();
     int getSkill();
-    int skill;
+    int skillN;
 };
 
 #endif // SKILL_H

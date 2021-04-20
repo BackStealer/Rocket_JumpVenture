@@ -32,8 +32,10 @@ void Intel::intelMove()
     {
         if(typeid(*(collision_intel[i])) == typeid(Soldier))
         {
-            game->skill->increase();
-            skill->increase();
+            skill->skillIncrease();
+            int temp = skill->getSkill();
+            qDebug() << temp;
+            game->skill->skillIncrease();
             scene()->removeItem(this);
             delete this;
             return MineL();

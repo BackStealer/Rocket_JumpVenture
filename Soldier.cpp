@@ -50,11 +50,11 @@ void Soldier::keyPressEvent(QKeyEvent *event)
     }
     else if (event->key() == Qt::Key_K)
     {
-        game->skill->decrease();
         check = skill->getSkill();
         qDebug() << check;
         if(check>0)
         {
+        game->skill->decrease();
         laugh = new QMediaPlayer();
         laugh->setMedia(QUrl("qrc:/new/sound/sound_res/laugh_sold.mp3"));
         laugh->setVolume(30);
@@ -63,8 +63,8 @@ void Soldier::keyPressEvent(QKeyEvent *event)
         QTimer * LaughT = new QTimer();
         connect(LaughT,SIGNAL(timeout()),this,SLOT(endLaugh()));
         LaughT->start(2500);
-        }
         skill->decrease();
+        }
     }
 }
 void Soldier::keyReleaseEvent(QKeyEvent *event)
