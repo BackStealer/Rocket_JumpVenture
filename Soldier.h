@@ -2,6 +2,7 @@
 #define SOLDIER_H
 
 #include "Skill.h"
+#include "Intel.h"
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 #include <QObject>
@@ -22,12 +23,17 @@ public:
     QMap<int, bool> pressedKeys;
     QPointF position;
     int check;
+    bool cooldown;
+    bool skillCooldown;
 public slots:
     void spawn();
     void intelSpawn();
     void endLaugh();
     void move();
     void SkillInfo();
+    void unlock();
+    void unlockSkill();
+    void caughtIntel();
 private:
     Skill *skill;
 };

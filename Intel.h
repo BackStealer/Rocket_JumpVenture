@@ -2,7 +2,7 @@
 #define INTEL_H
 
 #include "Soldier.h"
-#include "Skill.h"
+#include <QMediaPlayer>
 
 class Intel: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
@@ -12,8 +12,9 @@ public:
     QMediaPlayer *Hehe;
 public slots:
     void intelMove();
-private:
-    Skill *skill;
+signals:
+    void caught();
+
 };
 
 

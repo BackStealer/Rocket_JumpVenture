@@ -17,7 +17,7 @@ Intel::Intel(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
     Hehe = new QMediaPlayer();
     Hehe->setMedia(QUrl("qrc:/new/sound/sound_res/TF2 Soldier Mine.mp3"));
     Hehe->setVolume(10);
-    skill = new Skill();
+    //skill = new Skill();
 }
 
 void Intel::MineL()
@@ -32,10 +32,9 @@ void Intel::intelMove()
     {
         if(typeid(*(collision_intel[i])) == typeid(Soldier))
         {
-            skill->skillIncrease();
-            int temp = skill->getSkill();
-            qDebug() << temp;
-            game->skill->skillIncrease();
+            //game->skill->increase();
+            //skill->increase();
+            emit caught();
             scene()->removeItem(this);
             delete this;
             return MineL();
