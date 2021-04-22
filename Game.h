@@ -8,6 +8,7 @@
 #include <QMediaPlaylist>
 #include <QUrl>
 #include "Soldier.h"
+#include "Rocket.h"
 #include "Score.h"
 #include "Health.h"
 #include "Intel.h"
@@ -19,6 +20,7 @@ public:
 
     QGraphicsScene * scene;
     Soldier * soldier;
+    Rocket * rocket;
     Score * score;
     Health * health;
     Skill * skill;

@@ -2,8 +2,11 @@
 #include "Soldier.h"
 #include "Rocket.h"
 #include "Blu_bots.h"
+#include "HeavyBot.h"
+#include "Pyro.h"
 #include "Intel.h"
 #include <QGraphicsScene>
+#include <stdlib.h>
 #include <QKeyEvent>
 #include <QVector2D>
 #include <QPoint>
@@ -49,6 +52,18 @@ void Soldier::spawn()
 {
     Blu * blu = new Blu();
     scene()->addItem(blu);
+}
+
+void Soldier::heavySpawn()
+{
+    Heavy * heavy = new Heavy();
+    scene()->addItem(heavy);
+}
+
+void Soldier::pyroSpawn()
+{
+    Pyro * pyro = new Pyro();
+    scene()->addItem(pyro);
 }
 
 void Soldier::intelSpawn()
@@ -110,6 +125,13 @@ void Soldier::move()
             QTimer * LaughT = new QTimer();
             connect(LaughT,SIGNAL(timeout()),this,SLOT(endLaugh()));
             LaughT->start(2500);
+            for(int i=0;i<=600;i+=40)
+            {
+                int rktCount = rand()%600;
+                Rocket * rocketSalve = new Rocket();
+                rocketSalve->setPos(x()-30,rktCount);
+                scene()->addItem(rocketSalve);
+            }
         }
         game->skill->decrease();
         skill->decrease();

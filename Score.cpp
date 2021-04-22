@@ -13,6 +13,17 @@ void Score::increase()
     score += 10;
     setPlainText(QString("Score: ") + QString::number(score));
 }
+
+void Score::heavyIncrease()
+{
+    score += 20;
+    setPlainText(QString("Score: ") + QString::number(score));
+}
+void Score::pyroIncrease()
+{
+    score += 15;
+    setPlainText(QString("Score: ") + QString::number(score));
+}
 int Score::getScore()
 {
     return score;

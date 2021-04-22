@@ -1,5 +1,5 @@
-#ifndef ROCKET_H
-#define ROCKET_H
+#ifndef AIRBLASTED_H
+#define AIRBLASTED_H
 
 #include "Soldier.h"
 #include <QGraphicsPixmapItem>
@@ -7,21 +7,18 @@
 #include <QMediaPlayer>
 #include <QUrl>
 
-class Rocket: public QObject,public QGraphicsPixmapItem{
+class Airb: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Rocket(QGraphicsItem *parent=0);
+    Airb(QGraphicsItem *parent=0);
     QMediaPlayer * rktExpl;
     QMediaPlayer * airBlast;
     int hp = 3;
     int defl = 1;
-public slots:
-    void move();
-    void Explode();
     void airBlastSf();
-signals:
-    void airBlested();
+public slots:
+    void moveAirb();
+    void Explode();
 };
 
-
-#endif // ROCKET_H
+#endif // AIRBLASTED_H

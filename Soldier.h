@@ -27,6 +27,8 @@ public:
     bool skillCooldown;
 public slots:
     void spawn();
+    void heavySpawn();
+    void pyroSpawn();
     void intelSpawn();
     void endLaugh();
     void move();

@@ -8,6 +8,8 @@ class Score: public QGraphicsTextItem
 public:
     Score(QGraphicsItem * parent=0);
     void increase();
+    void heavyIncrease();
+    void pyroIncrease();
     int getScore();
 private:
     int score;

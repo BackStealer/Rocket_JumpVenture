@@ -8,6 +8,7 @@
         <file>sound_res/Team Fortress 2 Soundtrack Intruder Alert.mp3</file>
         <file>sound_res/The Calm and ROBOTS! combined (Team Fortress 2 music).mp3</file>
         <file>sound_res/TF2 Soldier Mine.mp3</file>
+        <file>sound_res/flame_thrower_airblast.wav</file>
     </qresource>
     <qresource prefix="/new/img">
         <file>img_res/bg.png</file>
@@ -18,5 +19,8 @@
         <file>img_res/Soldier_laugh.png</file>
         <file>img_res/Soldier_rj.png</file>
         <file>img_res/Spyware.png</file>
+        <file>img_res/Heavybot.png</file>
+        <file>img_res/Pyrobot.png</file>
+        <file>img_res/rocket_rev.png</file>
     </qresource>
 </RCC>
