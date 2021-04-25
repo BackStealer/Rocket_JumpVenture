@@ -27,7 +27,8 @@ Soldier::Soldier(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
         connect(SkillInfo,SIGNAL(timeout()),this,SLOT(SkillInfo()));
         SkillInfo->start(1);
         cooldown=false;
-        skillCooldown=false;
+        skillCooldown=false;        
+        ingame = false;
 }
 
 void Soldier::keyPressEvent(QKeyEvent *event)
@@ -36,7 +37,6 @@ void Soldier::keyPressEvent(QKeyEvent *event)
 }
 void Soldier::keyReleaseEvent(QKeyEvent *event)
 {
-
     if(event->isAutoRepeat())
     {
         return;
@@ -87,17 +87,17 @@ void Soldier::move()
 //        return;
 //    }
 
-    if (pressedKeys[Qt::Key::Key_W])
+    if (pressedKeys[Qt::Key::Key_W] && ingame)
     {
         if(pos().y() > 0)
         velocity.setY(velocity.y() - 5);
     }
-    if (pressedKeys[Qt::Key::Key_S])
+    if (pressedKeys[Qt::Key::Key_S] && ingame)
     {
         if(pos().y() < 500)
         velocity.setY(velocity.y() + 5);
     }
-    if (pressedKeys[Qt::Key_Space] && !cooldown)
+    if (pressedKeys[Qt::Key_Space] && !cooldown && ingame)
     {
         Rocket * rocket = new Rocket();
         rocket->setPos(x()+50,y());
@@ -109,7 +109,7 @@ void Soldier::move()
         cooldown=true;
         QTimer::singleShot(500,this,SLOT(unlock()));
     }
-    if (pressedKeys[Qt::Key_K] && !skillCooldown)
+    if (pressedKeys[Qt::Key_K] && !skillCooldown && ingame)
     {
         skillCooldown=true;
         QTimer::singleShot(500,this,SLOT(unlockSkill()));
@@ -136,7 +136,12 @@ void Soldier::move()
         game->skill->decrease();
         skill->decrease();
     }
-
+    if(pressedKeys[Qt::Key_P] && !ingame)
+    {
+        qDebug() << "kliknięte Xd";
+        game->StartGame();
+        ingame=true;
+    }
     position += velocity.toPointF();
     this->setPos(position);
     this->update();

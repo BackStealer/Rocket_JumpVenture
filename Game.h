@@ -7,6 +7,7 @@
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 #include <QUrl>
+#include <QGraphicsItem>
 #include "Soldier.h"
 #include "Rocket.h"
 #include "Score.h"
@@ -18,14 +19,23 @@ class Game: public QGraphicsView{
 public:
     Game(QWidget * parent=0);
 
-    QGraphicsScene * scene;
+    QGraphicsScene * scene, * failScene;
     Soldier * soldier;
     Rocket * rocket;
     Score * score;
     Health * health;
     Skill * skill;
     QMediaPlaylist * playlist;
-    QMediaPlayer * player;
+    QMediaPlayer * player,* mainM;
+    QTimer * spwnTimer;
+    QTimer * pyroTimer;
+    QTimer * heavyTimer;
+    QTimer * intelSpwnTimer;
+public slots:
+    void StartGame();
+    void FailS();
+signals:
+    void Stop();
 };
 
 #endif // GAME_H

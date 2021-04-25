@@ -19,6 +19,7 @@ public slots:
     void move();
     void Explode();
     void airBlastSf();
+    void rktStop();
 signals:
     void airBlested();
 };

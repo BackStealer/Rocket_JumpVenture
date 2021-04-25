@@ -12,6 +12,7 @@ public:
     QMediaPlayer * rktExpl;
 public slots:
     void pyroMove();
+    void pyroStop();
 };
 
 

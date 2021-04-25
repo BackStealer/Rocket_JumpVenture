@@ -11,6 +11,7 @@ public:
     Heavy(QGraphicsItem *parent=0);
 public slots:
     void heavyMove();
+    void heavyStop();
 };
 
 #endif // HEAVYBOT_H

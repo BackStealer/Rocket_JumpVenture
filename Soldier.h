@@ -3,6 +3,7 @@
 
 #include "Skill.h"
 #include "Intel.h"
+
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 #include <QObject>
@@ -24,7 +25,8 @@ public:
     QPointF position;
     int check;
     bool cooldown;
-    bool skillCooldown;
+    bool skillCooldown;    
+    bool ingame;
 public slots:
     void spawn();
     void heavySpawn();
@@ -36,6 +38,7 @@ public slots:
     void unlock();
     void unlockSkill();
     void caughtIntel();
+    void megaStop();
 private:
     Skill *skill;
 };
